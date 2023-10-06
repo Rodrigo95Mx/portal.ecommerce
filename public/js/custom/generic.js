@@ -95,6 +95,12 @@ function ajaxRequestGenercic(_ajaxData) {
             } else {
                 msg = err.responseJSON.msg;
             }
+
+            if(typeof msg === 'undefined'){
+                let data = err.responseJSON;
+                msg = data.error.message;
+            }
+
             if (msg == 'Expired token' || msg == 'Invalid token') {
                 modalLoaderClose();
                 Swal.fire({

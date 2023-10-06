@@ -1,5 +1,13 @@
 $(document).ready(function () {
-
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+            if (event.target.id == 'textMenssageSend') {
+                sendMessage();
+            }
+            event.preventDefault();
+            return false;
+        }
+    });
 });
 
 /**
@@ -192,33 +200,25 @@ function addReceivingMessage(_message) {
 
 /**
  * REALIZA EL ENVIO A CHAT GPT
- * @param {*} userMessage 
+ * @param {*} _userMessage 
  */
-async function sendMessageToGPT3(userMessage) {
-    const url = 'https://api.openai.com/v1/chat/completions'; // Cambia el motor según tus necesidades
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-    };
+async function sendMessageToGPT3(_userMessage) {
+    let ajaxData = new AjaxRequestClass(
+        API_SENDMSG,
+        { userMessage: _userMessage },
+        "Ocurrio un error al iniciar sesion",
+        'POST',
+        false,
+        true,
+        sendMessageToGPT3Request
+    );
+    ajaxRequestGenercic(ajaxData);
+}
 
-    const requestBody = {
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: userMessage }],
-    };
-
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify(requestBody)
-        });
-        if (response.ok) {
-            const data = await response.json();
-            addReceivingMessage(data.choices[0].message.content);
-        } else {
-            console.log('Error al enviar el mensaje a GPT-3.');
-        }
-    } catch (error) {
-        console.log('Error en la solicitud: ', error);
-    }
+/**
+ * RESPUESTA DEL AJAX 
+ * @param {*} _data 
+ */
+function sendMessageToGPT3Request(_data) {
+    addReceivingMessage(_data.choices[0].message.content);
 }

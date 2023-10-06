@@ -223,4 +223,24 @@ class EcommerceController extends Controller
             return response()->json(['status' => 'error', 'msg' =>  'Internal Server Error'], 500);
         }
     }
+
+    public function sendMessageChat(Request $request)
+    {
+        $input = $request->all();
+        try {
+            $url = 'https://api.openai.com/v1/chat/completions';
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer ' . env('KEY_API_CHAT_GPT'),
+            ])->post($url, [
+                'model' => "gpt-3.5-turbo",
+                'messages' => [['role' => "user", 'content' => $input['userMessage']]],
+            ]);
+            $json_custom = json_decode($response->body(), true);
+            return response()->json($json_custom, $response->status());
+            return response()->json(['status' => 'error', 'msg' =>  'Expired token'], 401);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'msg' =>  'Internal Server Error'], 500);
+        }
+    }
 }

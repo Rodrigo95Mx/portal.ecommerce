@@ -206,7 +206,7 @@
         var product_list = @js($products);
         var session = @js($session);
     </script>
-    <script src="{{ asset('js/custom/generic.js') }}"></script>
+    <script src="{{ asset('js/custom/generic.js') }}?v=1.00"></script>
     @yield('customjs')
 </body>
 
