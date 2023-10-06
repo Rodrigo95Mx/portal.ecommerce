@@ -688,7 +688,7 @@
 
 @section('customjs')
     <script>
-        const apiKey = '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';
+        const apiKey = @js(env('KEY_API_CHAT_GPT'));
 
         $(document).ready(function() {
             $(".chat_on").click(function() {
