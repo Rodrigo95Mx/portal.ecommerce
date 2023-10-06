@@ -688,7 +688,7 @@
 
 @section('customjs')
     <script>
-        const apiKey = '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';
+        const apiKey = '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';
 
         $(document).ready(function() {
             $(".chat_on").click(function() {
