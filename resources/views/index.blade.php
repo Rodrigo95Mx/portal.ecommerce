@@ -703,5 +703,5 @@
 
         });
     </script>
-    <script src="{{ HTML::script('js/custom/index.js') }}"></script>
+    <script src="{{ asset('js/custom/index.js') }}"></script>
 @stop

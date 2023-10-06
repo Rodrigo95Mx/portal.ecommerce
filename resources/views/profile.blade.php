@@ -112,5 +112,5 @@
     <script>
         var API_PURCHASEDETAILS = @js(route('purchaseDetails'));
     </script>
-    <script src="{{ HTML::script('js/custom/profile.js') }}"></script>
+    <script src="{{ asset('js/custom/profile.js') }}"></script>
 @stop
