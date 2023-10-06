@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Electro - HTML Ecommerce</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/slick.css') }}" />
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/slick-theme.css') }}" />
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/nouislider.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ HTML::style('css/bootstrap.min.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ HTML::style('css/slick.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ HTML::style('css/slick-theme.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ HTML::style('css/nouislider.min.css') }}" />
+    <link rel="stylesheet" href="{{ HTML::style('css/font-awesome.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ HTML::style('css/style.css') }}" />
     @yield('css')
 </head>
 
@@ -188,14 +188,14 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/slick.min.js') }}"></script>
-    <script src="{{ asset('js/nouislider.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.zoom.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ HTML::script('js/jquery.min.js') }}"></script>
+    <script src="{{ HTML::script('js/bootstrap.min.js') }}"></script>
+    <script src="{{ HTML::script('js/slick.min.js') }}"></script>
+    <script src="{{ HTML::script('js/nouislider.min.js') }}"></script>
+    <script src="{{ HTML::script('js/jquery.zoom.min.js') }}"></script>
+    <script src="{{ HTML::script('js/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{ asset('/plugins/player/lottie.min.js') }}"></script>
+    <script src="{{ HTML::script('/plugins/player/lottie.min.js') }}"></script>
     <script>
         var X_CSRF_TOKEN = @js(csrf_token());
         var LOADER = @js(asset('img/loader_ami.json'));

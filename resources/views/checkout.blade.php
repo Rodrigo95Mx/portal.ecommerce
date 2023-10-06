@@ -87,5 +87,5 @@
     <script>
         var API_BUYCARTLIST = @js(route('buyCartList'));
     </script>
-    <script src="{{ asset('js/custom/checkout.js') }}"></script>
+    <script src="{{ HTML::script('js/custom/checkout.js') }}"></script>
 @stop
